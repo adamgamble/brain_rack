@@ -7,7 +7,4 @@ require File.join(File.dirname(__FILE__), 'config')
 require File.join(File.dirname(__FILE__), 'base_controller')
 require File.join(File.dirname(__FILE__), 'custom')
 
-Rack::Handler::WEBrick.run(
-  RequestController.new,
-  :Port => 9000
-)
+run RequestController.new

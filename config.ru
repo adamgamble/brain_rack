@@ -1,10 +1,8 @@
 #!/usr/bin/env ruby
-require 'rack'
-require File.join(File.dirname(__FILE__), 'request_controller')
-require File.join(File.dirname(__FILE__), 'config')
+require 'bundler'
+Bundler.require
 
-#Controllers
-require File.join(File.dirname(__FILE__), 'base_controller')
-require File.join(File.dirname(__FILE__), 'custom')
+require File.join(File.dirname(__FILE__),'lib', 'request_controller')
+require File.join(File.dirname(__FILE__),'config', 'routes')
 
 run RequestController.new

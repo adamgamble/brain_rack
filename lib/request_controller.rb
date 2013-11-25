@@ -1,4 +1,4 @@
-load 'router.rb'
+require File.join(File.dirname(__FILE__), 'router.rb')
 class RequestController
   def call(env)
     route = Router.router.route_for(env["PATH_INFO"], env["REQUEST_METHOD"])

@@ -8,5 +8,5 @@ To use clone the repo and:
     rackup config.ru
 
 The config.rb file contains routes, currently only get is supported. To use a
-new controller class, inherit from BaseController and require your file in
+new controller class, inherit from BaseController
 config.ru

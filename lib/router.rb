@@ -7,12 +7,8 @@ class Router
     @routes = Hash.new { |hash, key| hash[key] = [] }
   end
 
-  def self.config &block
-    Router.router.instance_eval &block
-  end
-
-  def self.router
-    $router ||= Router.new
+  def config &block
+    instance_eval &block
   end
 
   def get path, options = {}
@@ -29,8 +25,8 @@ class Router
         path =~ route.first
       end
     end
-    return nil unless route_array
-    Route.new(route_array)
+    return Route.new(route_array) if route_array
+    return nil #No route matched
   end
 
   private

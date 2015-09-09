@@ -1,6 +1,6 @@
 require File.join(File.dirname(__FILE__), 'router.rb')
 
-class BrainRack
+class RackBrain
   attr_reader :router
 
   def initialize

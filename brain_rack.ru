@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+
 require 'rack'
 require File.join(File.dirname(__FILE__), 'request_controller')
 require File.join(File.dirname(__FILE__), 'config')

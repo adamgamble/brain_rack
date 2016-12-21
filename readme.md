@@ -1,12 +1,8 @@
-# Brain Rack
+# rack-brain
+https://isotope11.com/blog/build-your-own-web-framework-with-rack-and-ruby-part-1
 
-Web Framework written in Ruby
-This is just me playing around
+https://myrackapps.herokuapp.com/docs/Rack/Rack-projects/
 
-To use clone the repo and:
+https://isotope11.com/blog/build-your-own-web-framework-with-rack-and-ruby-part-2
 
-    rackup config.ru
 
-The config.rb file contains routes, currently only get is supported. To use a
-new controller class, inherit from BaseController
-config.ru

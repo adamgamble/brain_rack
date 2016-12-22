@@ -1,3 +1,4 @@
+# lib/response.rb #
 class Response
   attr_accessor :status_code, :headers, :body
 

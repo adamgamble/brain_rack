@@ -1,5 +1,6 @@
+# lib/router.rb
 require File.join(File.dirname(__FILE__), 'route')
-
+#
 class Router
   attr_reader :routes
 
@@ -7,16 +8,17 @@ class Router
     @routes = Hash.new { |hash, key| hash[key] = [] }
   end
 
-  def config &block
+  def config(&block)
     instance_eval &block
   end
 
-  def get path, options = {}
+  def get(path, options = {})
     @routes[:get] << [path, parse_to(options[:to])]
   end
 
-  def route_for path, method
-    method = method.downcase.to_sym
+  def route_for(env) # this method is too long.
+    path   = env['PATH_INFO']
+    method = env['REQUEST_METHOD'].downcase.to_sym
     route_array = routes[method].detect do |route|
       case route.first
       when String
@@ -26,12 +28,13 @@ class Router
       end
     end
     return Route.new(route_array) if route_array
-    return nil #No route matched
+    nil # No route matched
   end
 
   private
-  def parse_to to_string
-    klass, method = to_string.split("#")
-    {:klass => klass, :method => method}
+
+  def parse_to(to_string)
+    klass, method = to_string.split('#')
+    { klass: klass.capitalize, method: method }
   end
 end
